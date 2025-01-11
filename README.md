@@ -28,8 +28,7 @@ Un fournisseur à le droit de se créer un compte, de le modifier, de le supprim
 Tout le monde autant un utilisateur que le publique peuvent accéder à la liste des outils
 
 ## Contribution
-Binôme #1 : Juan Angel Melgar-Ruiz, Rabbi Miah || Collection : Fournisseur
-Binôme #2 : Hamza Ekram, Jean-Christophe Contant || Collection : client
+Binôme #2 : Hamza Ekram, Jean-Christophe Contant || Collection : client / Fournisseur
 
 ## Auteurs
 Hamza Ekram, Jean-Christophe Contant, Juan Angel Melgar-Ruiz, Rabbi Miah. 
