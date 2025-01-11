@@ -1,0 +1,967 @@
+{
+	"info": {
+		"_postman_id": "29558b91-6638-47e4-9f56-48b2c713cd7f",
+		"name": "LocationOutils",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "40322971",
+		"_collection_link": "https://atelier-2-0203.postman.co/workspace/LocationOutils~dcb47657-b9c9-46a3-aee4-65436d3c0b1d/collection/40322971-29558b91-6638-47e4-9f56-48b2c713cd7f?action=share&source=collection_link&creator=40322971"
+	},
+	"item": [
+		{
+			"name": "Outils",
+			"item": [
+				{
+					"name": "Hamza Ekram (Fournisseur) Copy",
+					"item": [
+						{
+							"name": "Autoriser",
+							"item": [
+								{
+									"name": "Étant donné un fournisseur, il peut accéder à la liste de tout les outils",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "http://localhost:8080/outils"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un fournisseur, il peut accéder à un outil avec son id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "http://localhost:8080/outils/3"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un fournisseur, il peut accéder à un outil avec son nom",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/outils?nom=Perceuse",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"outils"
+											],
+											"query": [
+												{
+													"key": "nom",
+													"value": "Perceuse"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un fournisseur, il peut créer son outil",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \"nom\": \"Couteauuu\",\r\n        \"description\": \"Perceuse lectrique pour travaux de bricolage\",\r\n        \"prix\": 150.0,\r\n        \"disponibilité\": true,\r\n        \"imageOutil\": null,\r\n        \"categorie\": \"Bricolage\",\r\n        \"datePublication\": \"2024-10-01\",\r\n        \"coordonné\": {\r\n            \"first\": 3.3522,\r\n            \"second\": 45.8566\r\n        },\r\n        \"etat\": \"neuf\",\r\n        \"fournisseur\": {\r\n            \"id\": 11,\r\n            \"imageUtilisateur\": null,\r\n            \"prenom\": \"Hamza\",\r\n            \"nom\": \"Ekram\",\r\n            \"numero_telephone\": \"2345678\",\r\n            \"courriel\": \"hamzaekram@gmail.com\",\r\n            \"role\": \"fournisseur\"\r\n        }\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/outils"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un fournisseur, il peut modifier son outil",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \"nom\": \"Knife\",\r\n        \"description\": \"Perceuse électrique pour travaux de bricolage\",\r\n        \"prix\": 150.0,\r\n        \"disponibilité\": true,\r\n        \"imageOutil\": null,\r\n        \"categorie\": \"Bricolage\",\r\n        \"datePublication\": \"2024-10-01\",\r\n        \"coordonné\": {\r\n            \"first\": 2.3522,\r\n            \"second\": 48.8566\r\n        },\r\n        \"etat\": \"neuf\",\r\n        \"fournisseur\": {\r\n            \"id\": 11,\r\n            \"imageUtilisateur\": null,\r\n            \"prenom\": \"Hamza\",\r\n            \"nom\": \"Ekram\",\r\n            \"numero_telephone\": \"2345678\",\r\n            \"courriel\": \"hamzaekram@gmail.com\",\r\n            \"role\": \"fournisseur\"\r\n        }\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/outils/11"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un fournisseur, il peut supprimer son outil",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "http://localhost:8080/outils/11"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Non Autorisé",
+							"item": [
+								{
+									"name": "Étant donné un fournisseur, il ne peut pas créer l'outil d'un autre",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \"nom\": \"Couteau\",\r\n        \"description\": \"Perceuse lectrique pour travaux de bricolage\",\r\n        \"prix\": 150.0,\r\n        \"disponibilité\": true,\r\n        \"imageOutil\": null,\r\n        \"categorie\": \"Bricolage\",\r\n        \"datePublication\": \"2024-10-01\",\r\n        \"coordonné\": {\r\n            \"first\": 3.3522,\r\n            \"second\": 45.8566\r\n        },\r\n        \"etat\": \"neuf\",\r\n        \"fournisseur\": {\r\n            \"id\": 2,\r\n            \"imageUtilisateur\": null,\r\n            \"prenom\": \"Bob\",\r\n            \"nom\": \"Martin\",\r\n            \"numero_telephone\": \"0623456789\",\r\n            \"courriel\": \"bob.martin@email.com\",\r\n            \"role\": \"fournisseur\"\r\n        }\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/outils"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un fournisseur, il ne peut pas modifier un outils qui ne lui appartient pas",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \"nom\": \"Knife\",\r\n        \"description\": \"Perceuse électrique pour travaux de bricolage\",\r\n        \"prix\": 150.0,\r\n        \"disponibilité\": true,\r\n        \"imageOutil\": null,\r\n        \"categorie\": \"Bricolage\",\r\n        \"datePublication\": \"2024-10-01\",\r\n        \"coordonné\": {\r\n            \"first\": 2.3522,\r\n            \"second\": 48.8566\r\n        },\r\n        \"etat\": \"neuf\",\r\n        \"fournisseur\": {\r\n            \"id\": 2,\r\n            \"imageUtilisateur\": null,\r\n            \"prenom\": \"Bob\",\r\n            \"nom\": \"Martin\",\r\n            \"numero_telephone\": \"0623456789\",\r\n            \"courriel\": \"bob.martin@email.com\",\r\n            \"role\": \"fournisseur\"\r\n        }\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/outils/2"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un fournisseur, il ne peut pas supprimer l'outil d'un autre",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "http://localhost:8080/outils/3"
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"auth": {
+						"type": "oauth2",
+						"oauth2": {
+							"scope": "",
+							"clientId": "{{auth0_clientID}}",
+							"username": "hamzaekram@gmail.com",
+							"tokenRequestParams": [
+								{
+									"key": "audience",
+									"value": "https://rentatool.com",
+									"enabled": true,
+									"send_as": "request_body"
+								}
+							],
+							"password": "Hamzaekram1234",
+							"accessTokenUrl": "{{serveur_authentification}}",
+							"clientSecret": "{{auth0_secretID}}",
+							"tokenName": "LocationOutils",
+							"grant_type": "password_credentials",
+							"addTokenTo": "header"
+						}
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Jean-Christophe Contant (Client)",
+					"item": [
+						{
+							"name": "Autorisé",
+							"item": [
+								{
+									"name": "Étant donné un client authentifié, il recoit une liste tous les outils",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "http://localhost:8080/outils"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un client authentifié, il recoit outil par id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "http://localhost:8080/outils/3"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un client authentifié, il recoit outil par le nom d'outil",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/outils?nom=Perceuse",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"outils"
+											],
+											"query": [
+												{
+													"key": "nom",
+													"value": "Perceuse"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Non Autorisé",
+							"item": [
+								{
+									"name": "Étant donné un client authentifié, il est impossible de créer un outils",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \"nom\": \"Couteau\",\r\n        \"description\": \"Perceuse lectrique pour travaux de bricolage\",\r\n        \"prix\": 150.0,\r\n        \"disponibilité\": true,\r\n        \"imageOutil\": null,\r\n        \"categorie\": \"Bricolage\",\r\n        \"datePublication\": \"2024-10-01\",\r\n        \"coordonné\": {\r\n            \"first\": 3.3522,\r\n            \"second\": 45.8566\r\n        },\r\n        \"etat\": \"neuf\",\r\n        \"fournisseur\": {\r\n            \"id\": 2,\r\n            \"imageUtilisateur\": null,\r\n            \"prenom\": \"Bob\",\r\n            \"nom\": \"Martin\",\r\n            \"numero_telephone\": \"0623456789\",\r\n            \"courriel\": \"bob.martin@email.com\",\r\n            \"role\": \"fournisseur\"\r\n        }\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/outils"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un client authentifié, il est impossible de modifier un outils",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \"nom\": \"Couteau\",\r\n        \"description\": \"Perceuse lectrique pour travaux de bricolage\",\r\n        \"prix\": 150.0,\r\n        \"disponibilité\": true,\r\n        \"imageOutil\": null,\r\n        \"categorie\": \"Bricolage\",\r\n        \"datePublication\": \"2024-10-01\",\r\n        \"coordonné\": {\r\n            \"first\": 3.3522,\r\n            \"second\": 45.8566\r\n        },\r\n        \"etat\": \"neuf\",\r\n        \"fournisseur\": {\r\n            \"id\": 2,\r\n            \"imageUtilisateur\": null,\r\n            \"prenom\": \"Bob\",\r\n            \"nom\": \"Martin\",\r\n            \"numero_telephone\": \"0623456789\",\r\n            \"courriel\": \"bob.martin@email.com\",\r\n            \"role\": \"fournisseur\"\r\n        }\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/outils/2"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un client authentifié, il est impossible de supprimer un outils",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "http://localhost:8080/outils/3"
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Publique",
+					"item": [
+						{
+							"name": "Autorisé",
+							"item": [
+								{
+									"name": "Étant donné un utilisateur non authentifié, il recoit une liste tous les outils",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "http://localhost:8080/outils"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un utilisateur non authentifié, il recoit outil par id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "http://localhost:8080/outils/3"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un utilisateur non authentifié, il recoit outil par le nom d'outil Copy",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/outils?nom=Perceuse",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"outils"
+											],
+											"query": [
+												{
+													"key": "nom",
+													"value": "Perceuse"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Non Autorisé",
+							"item": [
+								{
+									"name": "Étant donné un utilisateur non authentifié, il est impossible de créer un outils",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \"nom\": \"Couteau\",\r\n        \"description\": \"Perceuse lectrique pour travaux de bricolage\",\r\n        \"prix\": 150.0,\r\n        \"disponibilité\": true,\r\n        \"imageOutil\": null,\r\n        \"categorie\": \"Bricolage\",\r\n        \"datePublication\": \"2024-10-01\",\r\n        \"coordonné\": {\r\n            \"first\": 3.3522,\r\n            \"second\": 45.8566\r\n        },\r\n        \"etat\": \"neuf\",\r\n        \"fournisseur\": {\r\n            \"id\": 2,\r\n            \"imageUtilisateur\": null,\r\n            \"prenom\": \"Bob\",\r\n            \"nom\": \"Martin\",\r\n            \"numero_telephone\": \"0623456789\",\r\n            \"courriel\": \"bob.martin@email.com\",\r\n            \"role\": \"fournisseur\"\r\n        }\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/outils"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un utilisateur non authentifié, il est impossible de modifier un outils",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \"nom\": \"Knife\",\r\n        \"description\": \"Perceuse électrique pour travaux de bricolage\",\r\n        \"prix\": 150.0,\r\n        \"disponibilité\": true,\r\n        \"imageOutil\": null,\r\n        \"categorie\": \"Bricolage\",\r\n        \"datePublication\": \"2024-10-01\",\r\n        \"coordonné\": {\r\n            \"first\": 2.3522,\r\n            \"second\": 48.8566\r\n        },\r\n        \"etat\": \"neuf\",\r\n        \"fournisseur\": {\r\n            \"id\": 2,\r\n            \"imageUtilisateur\": null,\r\n            \"prenom\": \"Bob\",\r\n            \"nom\": \"Martin\",\r\n            \"numero_telephone\": \"0623456789\",\r\n            \"courriel\": \"bob.martin@email.com\",\r\n            \"role\": \"fournisseur\"\r\n        }\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/outils/2"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un utilisateur non authentifié, il est impossible de supprimer un outils",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "http://localhost:8080/outils/2"
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Utilisateur",
+			"item": [
+				{
+					"name": "Hamza Ekram (Fournisseur)",
+					"item": [
+						{
+							"name": "Autoriser",
+							"item": [
+								{
+									"name": "Étant donné un fournisseur, il recevra une liste de tout les utilisateurs",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "http://localhost:8080/utilisateurs"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un fournisseur, lorsque chercher le nom Gauthier, il recoit une liste d'utilisateur avec le nom Gautier",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/utilisateurs?nom=Gautier",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"utilisateurs"
+											],
+											"query": [
+												{
+													"key": "nom",
+													"value": "Gautier"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un fournisseur, lorsque chercher un nom avec aucun utilisateur, il reçoit une liste vide",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/utilisateurs?nom=Gau",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"utilisateurs"
+											],
+											"query": [
+												{
+													"key": "nom",
+													"value": "Gau"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un utilisateur authentifié, il peut se créer un compte",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"imageUtilisateur\": null,\r\n    \"prenom\": \"Hamzaa\",\r\n    \"nom\": \"Ekrama\",\r\n    \"numero_telephone\": \"2345678\",\r\n    \"courriel\": \"hamzaekram@gmail.com\",\r\n    \"role\": \"fournisseur\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/utilisateurs"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un fournisseur, il peut modifier son compte",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"imageUtilisateur\": null,\r\n    \"prenom\": \"Hamza\",\r\n    \"nom\": \"Ekram\",\r\n    \"numero_telephone\": \"2345678\",\r\n    \"courriel\": \"hamzaekram@gmail.com\",\r\n    \"role\": \"fournisseur\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/utilisateurs/11"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant un fournisseur, il peut supprimer son compte",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/utilisateurs/11"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Non Autorisé",
+							"item": [
+								{
+									"name": "Étant donné un fournisseur, il ne peut pas modifier le compte d'un autre",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"imageUtilisateur\": null,\r\n    \"prenom\": \"Ham\",\r\n    \"nom\": \"Ekr\",\r\n    \"numero_telephone\": \"22112211\",\r\n    \"courriel\": \"hamasdfadsfasdf@gmail.com\",\r\n    \"role\": \"fournisseur\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/utilisateurs/14"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un fournisseur, il ne peut pas modifier son email",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"imageUtilisateur\": null,\r\n    \"prenom\": \"Ham\",\r\n    \"nom\": \"Ekr\",\r\n    \"numero_telephone\": \"22112211\",\r\n    \"courriel\": \"hamasdfadsff@gmail.com\",\r\n    \"role\": \"fournisseur\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/utilisateurs/11"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant un fournisseur, il ne peut pas supprimer le compte d'un autre",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "http://localhost:8080/utilisateurs/15"
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"auth": {
+						"type": "oauth2",
+						"oauth2": {
+							"scope": "",
+							"clientId": "{{auth0_clientID}}",
+							"username": "hamzaekram@gmail.com",
+							"tokenRequestParams": [
+								{
+									"key": "audience",
+									"value": "https://rentatool.com",
+									"enabled": true,
+									"send_as": "request_body"
+								}
+							],
+							"password": "Hamzaekram1234",
+							"accessTokenUrl": "{{serveur_authentification}}",
+							"clientSecret": "{{auth0_secretID}}",
+							"tokenName": "LocationOutils",
+							"grant_type": "password_credentials",
+							"addTokenTo": "header"
+						}
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Jean-Christophe Contant (Client)",
+					"item": [
+						{
+							"name": "Autorisé",
+							"item": [
+								{
+									"name": "Étant donné un client, il recevra une liste de tout les utilisateurs",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "http://localhost:8080/utilisateurs"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un client, lorsque chercher le nom Gauthier, il recoit une liste d'utilisateur avec le nom Gautier",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/utilisateurs?nom=Gautier",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"utilisateurs"
+											],
+											"query": [
+												{
+													"key": "nom",
+													"value": "Gautier"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un client, lorsque chercher un nom avec aucun utilisateur, il reçoit une liste vide",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/utilisateurs?nom=Gau",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"utilisateurs"
+											],
+											"query": [
+												{
+													"key": "nom",
+													"value": "Gau"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un clientauthentifié, il peut se créer un compte",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"imageUtilisateur\": null,\r\n    \"prenom\": \"Jean-Christopheaa\",\r\n    \"nom\": \"Contantaa\",\r\n    \"numero_telephone\": \"2345678\",\r\n    \"courriel\": \"jeancontant@gmail.com\",\r\n    \"role\": \"fournisseur\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/utilisateurs"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un client, il peut modifier son compte",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"imageUtilisateur\": null,\r\n    \"prenom\": \"Jean-Christophe\",\r\n    \"nom\": \"Contant\",\r\n    \"numero_telephone\": \"2345678\",\r\n    \"courriel\": \"jeancontant@gmail.com\",\r\n    \"role\": \"fournisseur\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/utilisateurs/12"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant un client, il peut supprimer son compte",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "http://localhost:8080/utilisateurs/12"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Non Autorisé",
+							"item": [
+								{
+									"name": "Étant donné un client, il ne peut pas modifier le compte d'un autre",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"imageUtilisateur\": null,\r\n    \"prenom\": \"Hama\",\r\n    \"nom\": \"Ekra\",\r\n    \"numero_telephone\": \"22112211\",\r\n    \"courriel\": \"hamzaekram@gmail.com\",\r\n    \"role\": \"fournisseur\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/utilisateurs/16"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un client authentifié, il ne peut pas modifier son email",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"imageUtilisateur\": null,\r\n    \"prenom\": \"Jean-Christophe\",\r\n    \"nom\": \"Contant\",\r\n    \"numero_telephone\": \"2345678\",\r\n    \"courriel\": \"jeancontnt@gmail.com\",\r\n    \"role\": \"fournisseur\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/utilisateurs/12"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un client authentifié, il ne peut pas supprimer le compte d'un autre",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "http://localhost:8080/utilisateurs/14"
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"auth": {
+						"type": "oauth2",
+						"oauth2": {
+							"tokenRequestParams": [
+								{
+									"key": "audience",
+									"value": "https://rentatool.com",
+									"enabled": true,
+									"send_as": "request_body"
+								}
+							],
+							"scope": "",
+							"password": "Jeancontant1234",
+							"username": "jeancontant@gmail.com",
+							"tokenName": "LocationOutils",
+							"accessTokenUrl": "{{serveur_authentification}}",
+							"clientSecret": "{{auth0_secretID}}",
+							"clientId": "{{auth0_clientID}}",
+							"grant_type": "password_credentials",
+							"addTokenTo": "header"
+						}
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Publique",
+					"item": [
+						{
+							"name": "Autorisé",
+							"item": []
+						},
+						{
+							"name": "Non Autorisé",
+							"item": [
+								{
+									"name": "Étant donné un utilisateur publique, il ne peut pas acéder aux utilisateurs",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "http://localhost:8080/utilisateurs"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un utilisateur publique, il ne peut pas modifier un utilisateur",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"imageUtilisateur\": null,\r\n    \"prenom\": \"Ham\",\r\n    \"nom\": \"Ekr\",\r\n    \"numero_telephone\": \"22112211\",\r\n    \"courriel\": \"hamasdfadsfasdf@gmail.com\",\r\n    \"role\": \"fournisseur\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/utilisateurs/14"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un utilisateur publique, il ne peut pas supprimer un utilisateur",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "http://localhost:8080/utilisateurs/13"
+									},
+									"response": []
+								},
+								{
+									"name": "Étant donné un utilisateur publique, il ne peut pas modifier un utilisateur",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"imageUtilisateur\": null,\r\n    \"prenom\": \"Jean-Christophe\",\r\n    \"nom\": \"Contant\",\r\n    \"numero_telephone\": \"2345678\",\r\n    \"courriel\": \"jeancontant@gmail.com\",\r\n    \"role\": \"fournisseur\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/utilisateurs"
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": {
+			"clientSecret": "{{auth0_secretID}}",
+			"clientId": "{{auth0_clientID}}",
+			"accessTokenUrl": "{{serveur_authentification}}",
+			"tokenName": "LocationOutils",
+			"tokenRequestParams": [
+				{
+					"key": "audience",
+					"value": "https://rentatool.com",
+					"enabled": true,
+					"send_as": "request_body"
+				}
+			],
+			"grant_type": "client_credentials",
+			"addTokenTo": "header"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "serveur_authentification",
+			"value": "https://dev-jfbyr8a70cij7b5z.us.auth0.com/oauth/token"
+		},
+		{
+			"key": "auth0_clientID",
+			"value": "6758615fa829c22083027f46"
+		},
+		{
+			"key": "auth0_secretID",
+			"value": "Zg8eeZMYSfC1IPL1i2NX4f502npOpYqXel9bzZyRAEKnVJSOICY2OBJKjLRodKxe"
+		}
+	]
+}
